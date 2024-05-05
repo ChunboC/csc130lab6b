@@ -184,8 +184,9 @@ public class FootballApp {
 			char flag = 'n';
 			while (flag != 'q' && flag != 'Q') {
 				// 48. call the teamGames method and passes the list of teams and the Scanner
-				getTeam(teamList, scan);
-				System.out.print("Enter Q to quit or any other character to repeat: ");
+				Team targetTeam = getTeam(teamList, scan);
+				teamGames(gameList,targetTeam);
+				System.out.print("\nEnter Q to quit or any other character to repeat: ");
 				try {
 					flag = scan.nextLine().trim().charAt(0);
 				} catch (RuntimeException re) {
@@ -271,13 +272,10 @@ public class FootballApp {
 			Team team = tempTeam.get(position);
 			if (comp.getClass().getSimpleName().equals("HomeWinsComparator")) {
 				System.out.println(String.format("%2d %-18s %4d  %5d  %5d  %7d", position++, team.getName(),
-						team.getHomeWins(), team.getHomeDraws(), team.getHomeLosses(),
-						team.getHomePoints()));
-			}
-			else {
+						team.getHomeWins(), team.getHomeDraws(), team.getHomeLosses(), team.getHomePoints()));
+			} else {
 				System.out.println(String.format("%2d %-18s %4d  %5d  %5d  %7d", position++, team.getName(),
-						team.getAwayWins(), team.getAwayDraws(), team.getAwayLosses(),
-						team.getAwayPoints()));
+						team.getAwayWins(), team.getAwayDraws(), team.getAwayLosses(), team.getAwayPoints()));
 			}
 		}
 	}
@@ -364,10 +362,9 @@ public class FootballApp {
 				tempTeam = new Team(tempName);
 				if (teamList.contains(tempTeam)) {
 					tempTeam = teamList.get(teamList.indexOf(tempTeam));
-					System.out.println(tempTeam);
 					flag = true;
 				} else {
-					System.out.println("Invalid input - try again");
+					System.out.println("[" + tempName + "]" + " not found.");
 				}
 			} catch (Exception e) {
 				System.out.println("Invalid input - try again");

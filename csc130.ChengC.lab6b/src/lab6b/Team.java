@@ -18,12 +18,10 @@ import java.util.Comparator;
  */
 public class Team implements Comparable<Team> {
 	private String name;
-	// private int wins;
-	// private int loses;
-	// private int draws;
+	
 	private int goalsFor;
 	private int goalsAgainst;
-	// private int points;
+	
 
 	private int homeWins;
 	private int awayWins;
