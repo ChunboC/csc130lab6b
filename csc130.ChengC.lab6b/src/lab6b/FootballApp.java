@@ -371,13 +371,5 @@ public class FootballApp {
 			}
 		}
 		return tempTeam;
-		// 4. Create a loop to display the names of the teams
-
-		// 5. Create a try/catch block to permit the user to select one of the names of
-		// the teams
-
-		// 6. If the selected name is valid store it in the variable and return it
-		// Otherwise repeat the loop
-
 	}
 }
